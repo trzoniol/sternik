@@ -26,5 +26,15 @@ public class Z09Test {
 		assertThat(actual).isEqualTo(expected);
 
 	}
+	@Test
+	public void testZamiany2() {
+		int[][] expected = { { 1, 2, 3 }, { 7, 8, 9 }, { 4, 5, 6 }, { 1, 1, 2 }, { 3, 4, 5 } };
+		int w1 = 1;
+		int w2 = 2;
+		int[][] actual = Z09.zamien2(w1, w2, tablica);
+
+		assertThat(actual).isEqualTo(expected);
+
+	}
 
 }

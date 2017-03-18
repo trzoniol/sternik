@@ -12,7 +12,7 @@ public class Z07 {
 		int x = input.nextInt();
 		x = (int) x;
 
-		Z1_7 z = new Z1_7();
+		Z07 z = new Z07();
 		int tmp = z.znajdzPodzielna(tablica, x);
 
 		if (tmp > -1) {
