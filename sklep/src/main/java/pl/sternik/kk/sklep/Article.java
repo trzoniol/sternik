@@ -62,11 +62,11 @@ public class Article {
 
 	public Article() {
 		super();
-		this.id = 0;
+		counter++;
+		this.id = counter;
 		this.name = "Brak nazwy";
 		this.description = "Brak opisu";
 		this.price = 0.0d;
-		counter++;
 	}
 
 	protected void printChange() {

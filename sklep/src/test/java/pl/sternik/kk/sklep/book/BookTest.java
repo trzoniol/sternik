@@ -20,7 +20,7 @@ public class BookTest {
         assertThat(sut.getAutor()).isEqualTo("Brak autora");
         assertThat(sut.getYear()).isEqualTo(0);
         // dane z klasy nadrzędnej, z konstruktora domyslnego
-        assertThat(sut.getId()).isEqualTo(0);
+        assertThat(sut.getId()).isNotEqualTo(0);
         assertThat(sut.getName()).isEqualTo("Brak nazwy");
         assertThat(sut.getPrice()).isEqualTo(0);
         assertThat(sut.getDescription()).isEqualTo("Brak opisu");

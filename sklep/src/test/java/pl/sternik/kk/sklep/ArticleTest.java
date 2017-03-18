@@ -66,7 +66,7 @@ public class ArticleTest {
         // when:
         Article sut = new Article();
         // then:
-        assertThat(sut.getId()).isEqualTo(0);
+        assertThat(sut.getId()).isNotEqualTo(0);
         assertThat(sut.getName()).isEqualTo("Brak nazwy");
         assertThat(sut.getPrice()).isEqualTo(0);
         assertThat(sut.getDescription()).isEqualTo("Brak opisu");

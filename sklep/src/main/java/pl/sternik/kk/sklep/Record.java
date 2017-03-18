@@ -23,4 +23,8 @@ public class Record extends Article implements Streamable {
 		this.fileType = fileType;
 	}
 
+	public Record(long length, String fileType) {
+		this.length = length;
+		this.fileType = fileType;
+	}
 }
