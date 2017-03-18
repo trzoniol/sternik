@@ -1,4 +1,4 @@
-package sklep;
+package pl.sternik.kk.sklep;
 
 public abstract class Person {
     private int id;

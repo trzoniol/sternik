@@ -1,4 +1,4 @@
-package sklep;
+package pl.sternik.kk.sklep;
 
 import org.apache.log4j.Logger;
 

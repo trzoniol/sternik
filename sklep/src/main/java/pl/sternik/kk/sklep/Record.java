@@ -1,4 +1,4 @@
-package sklep;
+package pl.sternik.kk.sklep;
 
 public class Record extends Article implements Streamable {
 

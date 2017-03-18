@@ -1,9 +1,9 @@
-package sklep;
+package pl.sternik.kk.sklep;
 
 import org.apache.log4j.Logger;
 
-import sklep.book.Book;
-import zamowienia.Order;
+import pl.sternik.kk.sklep.book.Book;
+import pl.sternik.kk.zamowienia.Order;
 
 public class RunSklep {
 
