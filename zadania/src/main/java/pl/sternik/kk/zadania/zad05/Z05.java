@@ -1,6 +1,6 @@
 package pl.sternik.kk.zadania.zad05;
 
-public class Z1_5 {
+public class Z05 {
 
     public static void main(String[] args) {
         String[] tablica = { "Raz", "Dwa", "Trzy", "Cztery" };

@@ -2,7 +2,7 @@ package pl.sternik.kk.zadania.zad07;
 
 import java.util.Scanner;
 
-public class Z1_7 {
+public class Z07 {
 	public static void main(String[] args) {
 		int[] tablica = { 5, 4, 3, 4, 6, 6, 9, 1, 9 };
 		// int[] tablica = { 2, 2, 2, 4, 5, 5, 8, 1, 8 };

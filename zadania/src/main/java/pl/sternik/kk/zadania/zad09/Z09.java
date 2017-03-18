@@ -2,7 +2,7 @@ package pl.sternik.kk.zadania.zad09;
 
 import java.util.Scanner;
 
-public class Z1_9 {
+public class Z09 {
     public static void main(String[] args) {
         int[][] tablica = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 1, 1, 2 }, { 3, 4, 5 } };
         wyswietl(tablica);
@@ -14,7 +14,7 @@ public class Z1_9 {
         zamien2(w1, w2, tablica);
         wyswietl(tablica);
     }
-    private static int[][] zamien2(int w1, int w2, int[][] tablica) {
+    public static int[][] zamien2(int w1, int w2, int[][] tablica) {
         int[] tmp1, tmp2;
         tmp1 = tablica[w1];
         tmp2 = tablica[w2];
@@ -22,7 +22,7 @@ public class Z1_9 {
         tablica[w2] = tmp1;
         return tablica;
     }
-    private static int[][] zamien(int w1, int w2, int[][] tablica) {
+    protected static int[][] zamien(int w1, int w2, int[][] tablica) {
         int[][] out = new int[2][];
         out[0] = new int[tablica[w1].length];
         out[1] = new int[tablica[w2].length];

@@ -1,6 +1,6 @@
 package pl.sternik.kk.zadania.zad06;
 
-public class Z1_6 {
+public class Z06 {
 	public static void main(String[] args) {
 		int[][] values = { { 3, 8, 16 }, { 1, 22, 28, 24 }, { 3 }, { 41, 42 } };
 

@@ -5,15 +5,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 
-public class Z1_7Test {
+public class Z07Test {
 
 	int[] tablica = { 5, 4, 3, 4, 6, 6, 9, 1, 9 };
 
-	Z1_7 sut;
+	Z07 sut;
 
 	@Before
 	public void before() {
-		sut = new Z1_7();
+		sut = new Z07();
 	}
 
 	@Test

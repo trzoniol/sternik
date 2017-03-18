@@ -2,7 +2,7 @@ package pl.sternik.kk.zadania.zad08;
 
 import java.util.Scanner;
 
-public class Z1_8 {
+public class Z08 {
 
 	public static void main(String[] args) {
 		int[] tablica = pobierztabliceFajniej(args);
