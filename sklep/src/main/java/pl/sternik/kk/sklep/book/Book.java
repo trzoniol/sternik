@@ -34,7 +34,7 @@ public class Book extends Article {
 	}    
 
     public Book() {
-        this.setYear(2015);
+        this.setYear(0);
         this.setAutor("Brak autora");
         printChange();
 
