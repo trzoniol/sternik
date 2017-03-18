@@ -1,4 +1,4 @@
-package pl.sternik.kk.zadania.zad01;
+package pl.sternik.kk.zadania.zad05;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;

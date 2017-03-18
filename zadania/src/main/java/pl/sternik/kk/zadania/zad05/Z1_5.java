@@ -1,4 +1,4 @@
-package pl.sternik.kk.zadania.zad01;
+package pl.sternik.kk.zadania.zad05;
 
 public class Z1_5 {
 
