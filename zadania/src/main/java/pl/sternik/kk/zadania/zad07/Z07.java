@@ -1,12 +1,10 @@
 package pl.sternik.kk.zadania.zad07;
 
-import java.util.Scanner;
-
 public class Z07 {
 	
-	Scanner input;
+	MyScanner input;
 	
-	public Z07(Scanner input) {
+	public Z07(MyScanner input) {
 		super();
 		this.input = input;
 	}
@@ -14,7 +12,7 @@ public class Z07 {
 	public static void main(String[] args) {
 		int[] tablica = { 5, 4, 3, 4, 6, 6, 9, 1, 9 };
 		// int[] tablica = { 2, 2, 2, 4, 5, 5, 8, 1, 8 };
-		Scanner input = new Scanner(System.in);
+		MyScanner input = new MyScanner(System.in);
 
 		Z07 z07 = new Z07(input);
 		
@@ -22,7 +20,7 @@ public class Z07 {
 		
 		input.close();
 	}
-	int findWithScanner(int[] tablica, Scanner input) {
+	int findWithScanner(int[] tablica, MyScanner input) {
 		System.out.print("Podaj liczbę X: ");
 		int x = input.nextInt();
 		x = (int) x;
