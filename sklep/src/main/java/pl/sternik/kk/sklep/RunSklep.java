@@ -3,13 +3,15 @@ package pl.sternik.kk.sklep;
 import org.apache.log4j.Logger;
 
 import pl.sternik.kk.sklep.book.Book;
+import pl.sternik.kk.sklep.parser.ArticleIdAlreadyUsedException;
+import pl.sternik.kk.sklep.parser.BadArticleIDException;
 import pl.sternik.kk.sklep.zamowienia.Order;
 
 public class RunSklep {
 
 	private static final Logger log = Logger.getLogger("RunSklep");
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws BadArticleIDException {
 
 		Article ksiazka = new Article();
 		ksiazka.setId(1);

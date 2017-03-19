@@ -1,5 +1,7 @@
 package pl.sternik.kk.sklep;
 
+import pl.sternik.kk.sklep.parser.BadArticleIDException;
+
 public class Record extends Article implements Streamable {
 
 	private long length;
@@ -17,7 +19,7 @@ public class Record extends Article implements Streamable {
 		return null;
 	}
 
-	public Record(int id, String name, String description, double price, long length, String fileType) {
+	public Record(int id, String name, String description, double price, long length, String fileType) throws BadArticleIDException {
 		super(id, name, description, price);
 		this.length = length;
 		this.fileType = fileType;

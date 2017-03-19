@@ -2,6 +2,9 @@ package pl.sternik.kk.sklep;
 
 import org.apache.log4j.Logger;
 
+import pl.sternik.kk.sklep.parser.ArticleIdAlreadyUsedException;
+import pl.sternik.kk.sklep.parser.BadArticleIDException;
+
 public class Article {
 
 	private int id;
@@ -51,13 +54,19 @@ public class Article {
 		return "Article [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + "]";
 	}
 
-	public Article(int id, String name, String description, double price) {
+	public Article(int id, String name, String description, double price) throws BadArticleIDException {
 		super();
+		if(id < 0){
+			throw new BadArticleIDException("Id nie moze być ujemne!");
+		}
+		if(id < counter){
+			throw new ArticleIdAlreadyUsedException(id);
+		}
+		counter = id;
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		counter++;
 	}
 
 	public Article() {
