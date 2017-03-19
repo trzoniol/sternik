@@ -3,17 +3,31 @@ package pl.sternik.kk.zadania.zad07;
 import java.util.Scanner;
 
 public class Z07 {
+	
+	Scanner input;
+	
+	public Z07(Scanner input) {
+		super();
+		this.input = input;
+	}
+
 	public static void main(String[] args) {
 		int[] tablica = { 5, 4, 3, 4, 6, 6, 9, 1, 9 };
 		// int[] tablica = { 2, 2, 2, 4, 5, 5, 8, 1, 8 };
 		Scanner input = new Scanner(System.in);
 
+		Z07 z07 = new Z07(input);
+		
+		z07.findWithScanner(tablica, input);
+		
+		input.close();
+	}
+	int findWithScanner(int[] tablica, Scanner input) {
 		System.out.print("Podaj liczbę X: ");
 		int x = input.nextInt();
 		x = (int) x;
 
-		Z07 z = new Z07();
-		int tmp = z.znajdzPodzielna(tablica, x);
+		int tmp = znajdzPodzielna(tablica, x);
 
 		if (tmp > -1) {
 			System.out.println(
@@ -21,7 +35,7 @@ public class Z07 {
 		} else {
 			System.out.println("Brak liczby podzielnej");
 		}
-		input.close();
+		return tmp;
 	}
 
 	public int znajdzPodzielna(int[] tablica, int dzielnik) {
