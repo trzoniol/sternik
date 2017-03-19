@@ -3,6 +3,11 @@ package pl.sternik.kk.sklep;
 import java.util.Date;
 
 public class Shop {
+
+	// zad23
+	private Downloadable downloadable;
+	// Dalej dla zadania 23 patrz na koniec klasy.
+
 	private static Object[][] magazyn;
 
 	// 1 kolumna String - nazwa produktu
@@ -67,6 +72,23 @@ public class Shop {
 		ord2.accept();
 		System.out.println("----- Stan po 2 zamówieniu");
 		sklep.pokazStan();
+
+		// zad23
+		// klasa anonimowa implementująca interfejs Downloadable
+		// bezpośrednio w wywołaniu settera pola
+		sklep.setDownloadable(new Downloadable() {
+			@Override
+			public long filesize() {
+				return 32456;
+			}
+
+			@Override
+			public String fileType() {
+				return "mp3";
+			}
+		});
+		System.out.println("---------->"+sklep.getDownloadable().filesize());
+
 	}
 
 	public String pokazStan() {
@@ -99,4 +121,14 @@ public class Shop {
 			magazyn[i][1] = 0;
 		}
 	}
+	// zad 23
+
+	public Downloadable getDownloadable() {
+		return downloadable;
+	}
+
+	public void setDownloadable(Downloadable downloadable) {
+		this.downloadable = downloadable;
+	}
+
 }
