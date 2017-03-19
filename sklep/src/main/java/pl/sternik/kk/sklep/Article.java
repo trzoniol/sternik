@@ -1,6 +1,14 @@
 package pl.sternik.kk.sklep;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.log4j.Logger;
+import org.apache.log4j.chainsaw.Main;
 
 import pl.sternik.kk.sklep.parser.ArticleIdAlreadyUsedException;
 import pl.sternik.kk.sklep.parser.BadArticleIDException;
@@ -56,10 +64,10 @@ public class Article {
 
 	public Article(int id, String name, String description, double price) throws BadArticleIDException {
 		super();
-		if(id < 0){
+		if (id < 0) {
 			throw new BadArticleIDException("Id nie moze być ujemne!");
 		}
-		if(id < counter){
+		if (id < counter) {
 			throw new ArticleIdAlreadyUsedException(id);
 		}
 		counter = id;
@@ -79,7 +87,33 @@ public class Article {
 	}
 
 	protected void printChange() {
-		 log.debug("Zmieniono wartość pola");
+		log.debug("Zmieniono wartość pola");
 	}
 
+	public static boolean findDataWOpisie(String opis) {
+		boolean wynik = false;
+
+		Pattern p = Pattern.compile("\\d\\d-\\d\\d-\\d\\d\\d\\d");
+		Matcher m = p.matcher(opis);
+
+		while (m.find()) {
+			String mozeData = m.group();
+            //http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+			DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+			Date data = new Date();
+
+			try {
+				data = df.parse(mozeData);
+				System.out.println("[Wykryto datę w opisie produktu: \"" + opis + "\"] " + df.format(data) + "na pozycji "+ m.start());
+				wynik = true;
+			} catch (ParseException e) {
+				System.out.println("Błąd parsowania daty ze stringu: " + mozeData + " " + e.getMessage());
+			}
+		}
+		return wynik;
+	}
+	public static void main(String[] args) {
+		Article.findDataWOpisie("saadasd 11-11-1111skdmksldm");
+		Article.findDataWOpisie("saadasd 51-01-1000skdmksldm");
+	}
 }
