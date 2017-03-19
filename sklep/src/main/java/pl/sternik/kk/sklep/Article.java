@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -98,13 +99,14 @@ public class Article {
 
 		while (m.find()) {
 			String mozeData = m.group();
-            //http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+			// http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 			DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 			Date data = new Date();
 
 			try {
 				data = df.parse(mozeData);
-				System.out.println("[Wykryto datę w opisie produktu: \"" + opis + "\"] " + df.format(data) + "na pozycji "+ m.start());
+				System.out.println("[Wykryto datę w opisie produktu: \"" + opis + "\"] " + df.format(data)
+						+ "na pozycji " + m.start());
 				wynik = true;
 			} catch (ParseException e) {
 				System.out.println("Błąd parsowania daty ze stringu: " + mozeData + " " + e.getMessage());
@@ -112,8 +114,23 @@ public class Article {
 		}
 		return wynik;
 	}
-	public static void main(String[] args) {
+
+	public void toTable() {
+	        Formatter f = new Formatter();
+	        f.format("%1$-14s %2$20s\n", "Name", name);
+	        f.format("%1$-14s %2$20s\n", "Description", description);
+	        f.format("%1$-14s %2$20.2f\n", "Price", price);
+	        f.format("%1$-14s %2$20d\n", "Id", id);
+	        System.out.println(f);
+	        f.close();
+	        System.out.printf("%1$-14s %2$20d\n", "Id", id);
+	}
+
+	public static void main(String[] args) throws BadArticleIDException {
 		Article.findDataWOpisie("saadasd 11-11-1111skdmksldm");
 		Article.findDataWOpisie("saadasd 51-01-1000skdmksldm");
+		
+		Article a = new Article(3, "Mleko", "Mleko tłuste 3.5%", 3.5);
+		a.toTable();
 	}
 }
