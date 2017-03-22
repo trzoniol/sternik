@@ -2,11 +2,16 @@ package pl.sternik.kk.pilot.comands.menu;
 
 import java.util.Map;
 
-import pl.sternik.kk.pilot.Pilot;
 import pl.sternik.kk.pilot.comands.Command;
 import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.CommandPusty;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorGlosnoscMinus;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorGlosnoscPlus;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorKanalMinus;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorKanalPlus;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorWlacz;
+import pl.sternik.kk.pilot.comands.tv.CommandTelewizorWylacz;
 
 public class MenuTv implements MenuPilota {
 
@@ -20,18 +25,12 @@ public class MenuTv implements MenuPilota {
 	
     public void ustawMenu() {
         przyciski.clear();
-        przyciski.put("1", new CommandPusty());
-//        przyciski.put("1", new CommandTelewizorWlacz());
-        przyciski.put("2", new CommandPusty());
-//        przyciski.put("2", new CommandTelewizorWylacz());
-        przyciski.put("3", new CommandPusty());
-//        przyciski.put("3", new CommandTelewizorGlosnoscPlus());
-        przyciski.put("4", new CommandPusty());
-//        przyciski.put("4", new CommandTelewizorGlosnoscMinus());
-        przyciski.put("5", new CommandPusty());
-//        przyciski.put("5", new CommandTelewizorKanalPlus());
-        przyciski.put("6", new CommandPusty());
-//        przyciski.put("6", new CommandTelewizorKanalMinus());
+        przyciski.put("1", new CommandTelewizorWlacz());
+        przyciski.put("2", new CommandTelewizorWylacz());
+        przyciski.put("3", new CommandTelewizorGlosnoscPlus());
+        przyciski.put("4", new CommandTelewizorGlosnoscMinus());
+        przyciski.put("5", new CommandTelewizorKanalPlus());
+        przyciski.put("6", new CommandTelewizorKanalMinus());
         przyciski.put("7", new CommandPusty());
         przyciski.put("8", new CommandPusty());
 //        przyciski.put("8", new CommandTrybKanapowy());
