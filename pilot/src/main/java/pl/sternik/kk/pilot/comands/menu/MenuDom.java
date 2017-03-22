@@ -3,6 +3,7 @@ package pl.sternik.kk.pilot.comands.menu;
 import java.util.Map;
 
 import pl.sternik.kk.pilot.comands.Command;
+import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.CommandPusty;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
 import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWlacz;
@@ -11,9 +12,11 @@ import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWylacz;
 public class MenuDom implements MenuPilota {
 
 	private Map<String, Command> przyciski;
+	private CommandPrzelaczMenu przelaczMenu ;
 
-	public MenuDom(Map<String, Command> przyciski) {
+	public MenuDom(Map<String, Command> przyciski, CommandPrzelaczMenu pm) {
 		this.przyciski = przyciski;
+		przelaczMenu = pm;
 	}
 
 	public void ustawMenu() {
@@ -34,7 +37,7 @@ public class MenuDom implements MenuPilota {
 		// przyciski.put("8", new CommandWentylatorObroty3());
 		przyciski.put("9", new CommandPusty());
 		// przyciski.put("9", new CommandWentylatorWylacz());
-		// przyciski.put("0", new CommandPrzelaczMenu(inneMenu));
+		 przyciski.put("0", przelaczMenu);
 		przyciski.put("Z", new CommandZakoncz());
 		System.out.println("------>Menu Dom<------");
 	}

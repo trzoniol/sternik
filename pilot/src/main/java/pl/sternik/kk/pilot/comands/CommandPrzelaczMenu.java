@@ -4,17 +4,20 @@ import pl.sternik.kk.pilot.comands.menu.MenuPilota;
 
 public class CommandPrzelaczMenu implements Command {
 
-    private final MenuPilota menu;
+	public MenuPilota menu=null;
 
-    public CommandPrzelaczMenu(MenuPilota menu) {
-        this.menu = menu;
-    }
+	public CommandPrzelaczMenu() {
+	}
 
-    public void execute() {
-        menu.ustawMenu();
-    }
+	public CommandPrzelaczMenu(MenuPilota menu) {
+		this.menu = menu;
+	}
 
-    public String getOpis() {
-        return menu.getOpis();
-    }
+	public void execute() {
+		menu.ustawMenu();
+	}
+
+	public String getOpis() {
+		return menu.getOpis();
+	}
 }

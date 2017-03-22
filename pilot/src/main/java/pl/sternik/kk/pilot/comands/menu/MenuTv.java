@@ -2,16 +2,20 @@ package pl.sternik.kk.pilot.comands.menu;
 
 import java.util.Map;
 
+import pl.sternik.kk.pilot.Pilot;
 import pl.sternik.kk.pilot.comands.Command;
+import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.CommandPusty;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
 
 public class MenuTv implements MenuPilota {
 
 	private Map<String, Command> przyciski;
-
-	public MenuTv(Map<String, Command> przyciski) {
+	private CommandPrzelaczMenu przelaczMenu ;
+	
+	public MenuTv(Map<String, Command> przyciski,CommandPrzelaczMenu pm) {
 		this.przyciski = przyciski;
+		przelaczMenu = pm;
 	}
 	
     public void ustawMenu() {
@@ -33,8 +37,7 @@ public class MenuTv implements MenuPilota {
 //        przyciski.put("8", new CommandTrybKanapowy());
         przyciski.put("9", new CommandPusty());
 //        przyciski.put("9", new CommandWylaczWszystko());
-        przyciski.put("0", new CommandPusty());
-//        przyciski.put("0", new CommandPrzelaczMenu(inneMenu));
+        przyciski.put("0", przelaczMenu);
         przyciski.put("Z", new CommandZakoncz());
         System.out.println("------>Menu TV<------");
     }
