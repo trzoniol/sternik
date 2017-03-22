@@ -16,6 +16,8 @@ public abstract class SprzetyFasade {
 	public static void wylaczWszystkoWyjezdzam() {
         Swiatlo.instance().wylacz();
         Telewizor.instance().wylacz();
+        Wentylator.instance().obroty2();
+        Wentylator.instance().obroty1();
         Wentylator.instance().wylacz();
         Garaz.instance().drzwiGora();
     }
