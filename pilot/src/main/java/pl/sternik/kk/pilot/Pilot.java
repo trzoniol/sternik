@@ -2,44 +2,27 @@ package pl.sternik.kk.pilot;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Map;
-import java.util.TreeMap;
 
 import pl.sternik.kk.pilot.comands.Command;
-import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.menu.MenuDom;
 import pl.sternik.kk.pilot.comands.menu.MenuPilota;
 import pl.sternik.kk.pilot.comands.menu.MenuTv;
-import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWlacz;
-import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWylacz;
 
 public class Pilot {
 
-	private Map<String, Command> przyciski = new TreeMap<String, Command>();
-	public final MenuPilota menuDomowe;
-	public final MenuPilota menuTv;
+	public final MenuPilota MENU_DOMOWE = new MenuDom(this);
+	public final MenuPilota MENU_TV = new MenuTv(this);
+	MenuPilota stan;
 
 	public Pilot() {
 		System.out.println("-----> Rozpoczęcie pracy pilota");
-		CommandPrzelaczMenu pm = new CommandPrzelaczMenu();
-		menuDomowe = new MenuDom(przyciski, pm);
-		//Tu uwaga, nie ładny myk..
-		CommandPrzelaczMenu pm2 = new CommandPrzelaczMenu(menuDomowe);
-		menuTv = new MenuTv(przyciski, pm2);
-		pm.menu = menuTv;
-		menuDomowe.ustawMenu();
+		stan = MENU_DOMOWE;
 	}
 
 	public void kliknijPrzyciskNr(String numer) {
-		Command command = przyciski.get(numer.toUpperCase());
+		Command command = stan.getCommandForKey(numer.toUpperCase());
 		System.out.println("Kliknięto: " + numer);
 		command.execute();
-	}
-
-	public void wyswietlMenu() {
-		for (Map.Entry<String, Command> entry : przyciski.entrySet()) {
-			System.out.println(entry.getKey() + "-" + entry.getValue().getOpis());
-		}
 	}
 
 	private static boolean czyWcisnietoZnakWyjscia(String znak) {
@@ -68,5 +51,17 @@ public class Pilot {
 			}
 
 		} while (czyDalej);
+	}
+
+	private void wyswietlMenu() {
+		stan.wyswietlMenu();
+	}
+
+	public void przelaczMenu() {
+		if (stan == MENU_DOMOWE) {
+			stan = MENU_TV;
+		} else {
+			stan = MENU_DOMOWE;
+		}
 	}
 }

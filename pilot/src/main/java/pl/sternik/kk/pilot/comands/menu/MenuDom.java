@@ -1,7 +1,9 @@
 package pl.sternik.kk.pilot.comands.menu;
 
 import java.util.Map;
+import java.util.TreeMap;
 
+import pl.sternik.kk.pilot.Pilot;
 import pl.sternik.kk.pilot.comands.Command;
 import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
@@ -17,16 +19,11 @@ import pl.sternik.kk.pilot.comands.wentylator.CommandWentylatorWylacz;
 
 public class MenuDom implements MenuPilota {
 
-	private Map<String, Command> przyciski;
-	private CommandPrzelaczMenu przelaczMenu;
+	private Map<String, Command> przyciski = new TreeMap<String, Command>();
+	private Pilot pilot;
 
-	public MenuDom(Map<String, Command> przyciski, CommandPrzelaczMenu pm) {
-		this.przyciski = przyciski;
-		przelaczMenu = pm;
-	}
-
-	public void ustawMenu() {
-		przyciski.clear();
+	public MenuDom(Pilot pilot) {
+		this.pilot = pilot;
 		przyciski.put("1", new CommandSwiatloWlacz());
 		przyciski.put("2", new CommandSwiatloWylacz());
 		przyciski.put("3", new CommandGarazOtworzDrzwi());
@@ -36,12 +33,23 @@ public class MenuDom implements MenuPilota {
 		przyciski.put("7", new CommandWentylatorObroty2());
 		przyciski.put("8", new CommandWentylatorObroty3());
 		przyciski.put("9", new CommandWentylatorWylacz());
-		przyciski.put("0", przelaczMenu);
+		przyciski.put("0", new CommandPrzelaczMenu(pilot));
 		przyciski.put("Z", new CommandZakoncz());
-		System.out.println("------>Menu Dom<------");
 	}
 
 	public String getOpis() {
 		return "Menu Dom";
+	}
+
+	@Override
+	public Command getCommandForKey(String command) {
+		return przyciski.get(command);
+	}
+	
+	public void wyswietlMenu() {
+		System.out.println("------>Menu Dom<------");
+		for (Map.Entry<String, Command> entry : przyciski.entrySet()) {
+			System.out.println(entry.getKey() + "-" + entry.getValue().getOpis());
+		}
 	}
 }

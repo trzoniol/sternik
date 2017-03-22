@@ -1,23 +1,23 @@
 package pl.sternik.kk.pilot.comands;
 
-import pl.sternik.kk.pilot.comands.menu.MenuPilota;
+import pl.sternik.kk.pilot.Pilot;
 
 public class CommandPrzelaczMenu implements Command {
 
-	public MenuPilota menu=null;
+	public Pilot pilot=null;
 
 	public CommandPrzelaczMenu() {
 	}
 
-	public CommandPrzelaczMenu(MenuPilota menu) {
-		this.menu = menu;
+	public CommandPrzelaczMenu(Pilot pilot) {
+		this.pilot = pilot;
 	}
 
 	public void execute() {
-		menu.ustawMenu();
+		pilot.przelaczMenu();
 	}
 
 	public String getOpis() {
-		return menu.getOpis();
+		return "Przełaczenie menu";
 	}
 }
