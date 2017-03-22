@@ -7,6 +7,8 @@ import pl.sternik.kk.pilot.Pilot;
 import pl.sternik.kk.pilot.comands.Command;
 import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
 import pl.sternik.kk.pilot.comands.CommandPusty;
+import pl.sternik.kk.pilot.comands.CommandTrybKanapowy;
+import pl.sternik.kk.pilot.comands.CommandWylaczWszystko;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
 import pl.sternik.kk.pilot.comands.tv.CommandTelewizorGlosnoscMinus;
 import pl.sternik.kk.pilot.comands.tv.CommandTelewizorGlosnoscPlus;
@@ -29,10 +31,8 @@ public class MenuTv implements MenuPilota {
 		przyciski.put("5", new CommandTelewizorKanalPlus());
 		przyciski.put("6", new CommandTelewizorKanalMinus());
 		przyciski.put("7", new CommandPusty());
-		przyciski.put("8", new CommandPusty());
-//        przyciski.put("8", new CommandTrybKanapowy());
-		przyciski.put("9", new CommandPusty());
-//        przyciski.put("9", new CommandWylaczWszystko());
+        przyciski.put("8", new CommandTrybKanapowy());
+        przyciski.put("9", new CommandWylaczWszystko());
 		przyciski.put("0", new CommandPrzelaczMenu(pilot));
 		przyciski.put("Z", new CommandZakoncz());
 	}
