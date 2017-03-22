@@ -5,7 +5,7 @@ import pl.sternik.kk.pilot.tv.Telewizor;
 
 public class CommandTelewizorKanalPlus implements Command {
     public void execute() {
-        Telewizor.instance().wylacz();
+        Telewizor.instance().kanalPlus();;
     }
 
     public String getOpis() {

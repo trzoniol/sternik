@@ -1,37 +1,42 @@
 package pl.sternik.kk.pilot.tv;
 
 public final class Telewizor {
-    private static Telewizor instance = new Telewizor();
+	private static Telewizor instance = new Telewizor();
 
-    private Telewizor() {
-        System.out.println("Tworzę sprzęt Telewizor");
-    };
+	final TelewizorStan WYLACZONY = new TelewizorWylaczony(this);
+	final TelewizorStan WLACZONY = new TelewizorWlaczony(this);
+	private TelewizorStan stan;
 
-    public static Telewizor instance() {
-        return instance;
-    }
+	private Telewizor() {
+		System.out.println("Tworzę sprzęt Telewizor");
+		stan = WYLACZONY;
+	};
 
-    public void wlacz() {
-        System.out.println("Telewizor włączony");
-    }
+	public static Telewizor instance() {
+		return instance;
+	}
 
-    public void wylacz() {
-        System.out.println("Telewizor wyłączony");
-    }
+	public void wlacz() {
+		stan = stan.wlacz();
+	}
 
-    public void kanalPlus() {
-        System.out.println("TV Kanał ++");
-    }
+	public void wylacz() {
+		stan = stan.wylacz();
+	}
 
-    public void kanalMinus() {
-        System.out.println("TV Kanał --");
-    }
+	public void kanalPlus() {
+		stan = stan.nextKanal();
+	}
 
-    public void glosnoscPlus() {
-        System.out.println("TV Głośność ++");
-    }
+	public void kanalMinus() {
+		stan = stan.prevKanal();
+	}
 
-    public void glosnoscMinus() {
-        System.out.println("TV Głośność --");
-    }
+	public void glosnoscPlus() {
+		stan = stan.glosniej();
+	}
+
+	public void glosnoscMinus() {
+		stan = stan.ciszej();
+	}
 }
