@@ -1,4 +1,4 @@
-package pl.sternik.kk.pilot;
+package pl.sternik.kk.pilot.tv;
 
 public final class Telewizor {
     private static Telewizor instance = new Telewizor();

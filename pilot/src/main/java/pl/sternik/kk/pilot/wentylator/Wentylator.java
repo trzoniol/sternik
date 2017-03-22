@@ -1,4 +1,4 @@
-package pl.sternik.kk.pilot;
+package pl.sternik.kk.pilot.wentylator;
 
 public final class Wentylator {
     private static Wentylator instance = new Wentylator();

@@ -1,4 +1,4 @@
-package pl.sternik.kk.pilot;
+package pl.sternik.kk.pilot.garaz;
 
 public final class Garaz {
     private static Garaz instance = new Garaz();
