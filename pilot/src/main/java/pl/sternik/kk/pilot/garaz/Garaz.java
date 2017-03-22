@@ -1,21 +1,29 @@
 package pl.sternik.kk.pilot.garaz;
 
 public final class Garaz {
-    private static Garaz instance = new Garaz();
+	private static Garaz instance = new Garaz();
 
-    private Garaz() {
-        System.out.println("Tworzę sprzęt Garaz");
-    };
+	final GarazStan OTWARTY = new GarazOtwarty();
+	final GarazStan ZAMKNIETY = new GarazZamkniety();
 
-    public static Garaz instance() {
-        return instance;
-    }
+	private GarazStan stan;
 
-    public void drzwiDol() {
-        System.out.println("Garaż drzwi w dół");
-    }
+	private Garaz() {
+		System.out.println("Tworzę sprzęt Garaz");
+		stan = ZAMKNIETY;
+	};
 
-    public void drzwiGora() {
-        System.out.println("Garaż drzwi w górę");
-    }
+	public static Garaz instance() {
+		return instance;
+	}
+
+	public void drzwiDol() {
+		stan.close();
+		stan = ZAMKNIETY;
+	}
+
+	public void drzwiGora() {
+		stan.open();
+		stan = OTWARTY;
+	}
 }
