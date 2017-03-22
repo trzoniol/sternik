@@ -4,8 +4,9 @@ import java.util.Map;
 
 import pl.sternik.kk.pilot.comands.Command;
 import pl.sternik.kk.pilot.comands.CommandPrzelaczMenu;
-import pl.sternik.kk.pilot.comands.CommandPusty;
 import pl.sternik.kk.pilot.comands.CommandZakoncz;
+import pl.sternik.kk.pilot.comands.garaz.CommandGarazOtworzDrzwi;
+import pl.sternik.kk.pilot.comands.garaz.CommandGarazZamknijDrzwi;
 import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWlacz;
 import pl.sternik.kk.pilot.comands.swiatlo.CommandSwiatloWylacz;
 import pl.sternik.kk.pilot.comands.wentylator.CommandWentylatorObroty1;
@@ -28,10 +29,8 @@ public class MenuDom implements MenuPilota {
 		przyciski.clear();
 		przyciski.put("1", new CommandSwiatloWlacz());
 		przyciski.put("2", new CommandSwiatloWylacz());
-		przyciski.put("3", new CommandPusty());
-		// przyciski.put("3", new CommandGarazOtworzDrzwi());
-		przyciski.put("4", new CommandPusty());
-		// przyciski.put("4", new CommandGarazZamknijDrzwi());
+		przyciski.put("3", new CommandGarazOtworzDrzwi());
+		przyciski.put("4", new CommandGarazZamknijDrzwi());
 		przyciski.put("5", new CommandWentylatorWlacz());
 		przyciski.put("6", new CommandWentylatorObroty1());
 		przyciski.put("7", new CommandWentylatorObroty2());
